@@ -33,4 +33,13 @@ export class TasksComponent {
   onChangeClickedButton() {
     this.isAddingTask = false
   }
+
+  onAddNewTask(task:any) {
+    this.userTasks.push({
+      ...task,
+      userId: this.id,
+      id: `${new Date().getTime()}`
+    })
+    this.isAddingTask = false
+  }
 }

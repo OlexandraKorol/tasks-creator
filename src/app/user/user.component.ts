@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TasksComponent } from '../tasks/tasks.component';
+import { User } from './user.model';
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-user',
@@ -16,6 +12,7 @@ interface User {
 })
 export class UserComponent {
   @Input() user!: User;
+  @Input() selected!: boolean;
 
   @Output() getId = new EventEmitter()
 

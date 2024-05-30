@@ -1,6 +1,6 @@
 
   <div id="container">
-    <button (click)="onSelectUser()">
+    <button [class.active]="selected"  (click)="onSelectUser()">
       <span>
          {{user.name}}
       </span>

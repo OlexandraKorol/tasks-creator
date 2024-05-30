@@ -5,15 +5,14 @@
         <app-user 
         [user]="user" 
         (getId)="onGettingId($event)"
+        [selected]="user.id === selectedUserId"
         />
     </li>
   </ul>
 
+  <app-tasks *ngIf="userName; else test" [userName]="userName!.name" [id]="userName.id"/>
 
-    <app-tasks *ngIf="userName; else test" [userName]="userName!.name"/>
-
-    <ng-template #test>
-      <p>Choose the user</p>
-    </ng-template>
-
+  <ng-template #test>
+    <p>Choose the user</p>
+  </ng-template>
 </main>

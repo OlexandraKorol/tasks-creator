@@ -10,14 +10,10 @@
   </header>
 
     <ul>
-      <li>
-        <app-task />
-      </li>
-      <li>
-        <app-task />
-      </li>
-      <li>
-        <app-task />
-      </li>
+      @for (task of userTasks; track task.id) {
+        <li>
+          <app-task [userTask]="task" (complete)="onSelectedTasks($event)" />
+        </li>
+      }
     </ul>
 </section>

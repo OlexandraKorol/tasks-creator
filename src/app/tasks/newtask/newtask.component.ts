@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-newtask',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './newtask.component.css'
 })
 export class NewtaskComponent {
+  @Input() isClicked!: boolean
+  @Output() chancgeChlickedState = new EventEmitter<void>()
 
+  onCancelButtonClick() {
+    this.chancgeChlickedState.emit()
+  }
 }

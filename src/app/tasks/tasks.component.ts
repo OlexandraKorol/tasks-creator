@@ -2,17 +2,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 
 import { DUMMY_TASKS } from '../dummy.tasks'
+import { NewtaskComponent } from './newtask/newtask.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewtaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   @Input() userName?: string
   @Input() id!: string
+  isAddingTask: boolean = false
 
   userTasks = DUMMY_TASKS
 
@@ -21,7 +23,14 @@ export class TasksComponent {
   }
 
   onSelectedTasks(id: string) {
-    console.log('task done', id)
     this.userTasks = this.userTasks.filter((task) => task.id !== id)
+  }
+
+  onStartAddingTask() {
+    this.isAddingTask = true
+  }
+
+  onChangeClickedButton() {
+    this.isAddingTask = false
   }
 }
